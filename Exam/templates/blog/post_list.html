@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+            <br>
+            
+        <!-- <h4><font style="text-align:left;"> published: {{ post.published_date }}<font style="text-align:right;">{{ post.Created_Date }}</font></font></h4> -->
+        <p style="text-align:left;"> Published : {{ post.published_date }}<span style="float:right;">
+        Created By : {{ post.Created_By }}
+    </span>
+</p>
+        <p style="text-align: right;">{{ post.Created_Date }}</p>
+    </div>
+        <h2><a href=""><b>{{ post.Name }}</b></a></h2>
+        <p>{{ post.Subject }}</p>
+        <p>Duration of Exam: {{ post.Duration }}<button type="button">Start Exam</button></p>
+        <p>{{ post.text|linebreaksbr }}</p><hr>
+    </div>
+    {% endfor %}
+{% endblock %}
