@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if post.published_date %}
+            <div class="date">
+                <p style="text-align:left;"> Published : {{ post.published_date }}<span style="float:right;">Created By : {{ post.Created_By }} </span></p>
+                <p style="text-align: right;">{{ post.Created_Date }}</p>
+
+            </div>
+     	{% endif %}
+        <p align="right"><a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a></p>
+        <h2>{{ post.Name }}</h2>
+        <p>{{ post.Subject }}</p>
+        <p>Duration of Exam: {{ post.Duration }}<button type="button">Start Exam</button></p>
+        <p>{{ post.text|linebreaksbr }}</p><hr>
+    </div>
+{% endblock %}

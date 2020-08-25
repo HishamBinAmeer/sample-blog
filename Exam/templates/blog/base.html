@@ -8,19 +8,20 @@
         <link rel="stylesheet" href="{% static 'css/Exam.css' %}">
     </head>
     <body>
-        <body>
-    <div class="page-header">
-        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-        <h1 style="text-align:center;"><u><b>Entri Exams</b></u></h1>
-    </div>
-    <div class="content container">
-        <div class="row">
-            <div class="col-md-8">
-            {% block content %}
-            {% endblock %}
+        
+        <div class="page-header">
+            {% if user.is_authenticated %}
+            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus" ><font size="3">Add new</font></span></a>
+            {% endif %}
+            <h1 style="text-align:center;"><u><b>Entri Exams</b></u></h1>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% block content %}
+                    {% endblock %}
+                </div>
             </div>
         </div>
-    </div>
-</body>
     </body>
 </html>

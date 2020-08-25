@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %}
+
 {% block content %}
     {% for post in posts %}
         <div class="post">
@@ -12,7 +13,8 @@
 </p>
         <p style="text-align: right;">{{ post.Created_Date }}</p>
     </div>
-        <h2><a href=""><b>{{ post.Name }}</b></a></h2>
+        <!-- <h2><a href=""><b>{{ post.Name }}</b></a></h2> -->
+        <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.Name }}</a></h2>
         <p>{{ post.Subject }}</p>
         <p>Duration of Exam: {{ post.Duration }}<button type="button">Start Exam</button></p>
         <p>{{ post.text|linebreaksbr }}</p><hr>
